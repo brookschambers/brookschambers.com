@@ -1,0 +1,54 @@
+@use '../tokens' as *;
+
+html,
+body {
+	margin: 0;
+}
+
+html {
+	background-color: token('color.brands.tan');
+}
+
+body {
+	font-family: token('typography.family.body');
+	-moz-osx-font-smoothing: auto;
+	-webkit-font-smoothing: antialiased;
+	font-size: 100%;
+	color: token('color.brands.black');
+	line-height: 1;
+	margin: 0;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+* {
+	outline: 3px solid transparent;
+
+	&:focus-visible {
+		border-radius: 0.25rem;
+		outline-color: token('color.brands.pink');
+	}
+}
+
+::selection {
+	background-color: token('color.brands.pink');
+	color: #fff;
+}
+
+a {
+	color: inherit;
+
+	&:hover,
+	&:focus-visible {
+		color: token('color.brands.pink');
+	}
+}
+
+img {
+	height: auto;
+	max-width: 100%;
+}

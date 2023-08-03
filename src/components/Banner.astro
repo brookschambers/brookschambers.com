@@ -1,0 +1,40 @@
+<header class="wrapper">
+	<h1 class="name">Brooks Chambers</h1>
+	<span class="title">Creative Director</span>
+	<span class="email">hello@brookschambers.com</span>
+</header>
+
+<style lang="scss">
+	@use '../tokens' as *;
+
+	.wrapper {
+		padding: 1.25rem;
+		display: grid;
+		gap: 0.5rem;
+
+		@media (min-width: 600px) {
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+
+	.name,
+	.title,
+	.email {
+		line-height: 1;
+		margin: 0;
+		font-size: 1.25rem;
+		font-weight: 400;
+	}
+
+	.title {
+		@media (min-width: 600px) {
+			text-align: center;
+		}
+	}
+
+	.email {
+		@media (min-width: 600px) {
+			text-align: right;
+		}
+	}
+</style>

@@ -1,0 +1,59 @@
+<nav class="nav">
+	<li class="nav-item"><a class="nav-link nav-link--mode" href="#mode">Mode</a></li>
+	<li class="nav-item"><a class="nav-link nav-link--loom" href="#loom">Loom</a></li>
+	<li class="nav-item"><a class="nav-link nav-link--intercom" href="#intercom">Intercom</a></li>
+	<li class="nav-item"><a class="nav-link nav-link--personal" href="#personal">&amp; More</a></li>
+</nav>
+
+<style lang="scss">
+	@use '../tokens' as *;
+
+	.nav {
+		background: token('color.brands.tan');
+		display: flex;
+		font-family: token('typography.family.heading');
+		font-weight: 300;
+		font-size: 10vw;
+		gap: 0.25em;
+		letter-spacing: -0.03125em;
+		list-style: none;
+		overflow: hidden;
+		position: sticky;
+		top: 0;
+		text-transform: uppercase;
+
+		&-link {
+			text-decoration: none;
+			transition: color token('transition.linear-quick');
+			white-space: nowrap;
+
+			&--mode {
+				&:hover,
+				&[aria-step='current'] {
+					color: token('color.mode-green');
+				}
+			}
+
+			&--loom {
+				&:hover,
+				&[aria-step='current'] {
+					color: token('color.loom-purple');
+				}
+			}
+
+			&--intercom {
+				&:hover,
+				&[aria-step='current'] {
+					color: token('color.intercom-blue');
+				}
+			}
+
+			&--personal {
+				&:hover,
+				&[aria-step='current'] {
+					color: token('color.brands.pink');
+				}
+			}
+		}
+	}
+</style>

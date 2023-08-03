@@ -1,0 +1,21 @@
+---
+import '../styles/app.scss';
+
+interface Props {
+	title?: string;
+	description?: string;
+}
+
+const { title = "Brooks Chambers", description = "The personal portfolio of Brooks Chambers, Creative Director" }: Props = Astro.props;
+---
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<meta name="description" content={description}>
+<meta property="og:url" content={Astro.url.href}>
+<meta property="og:site_name" content="Brooks Chambers">
+<meta property="og:title" content={title}>
+<meta property="og:description" content={description}>
+<meta name="theme-color" content="#e96f8c">
+<title>{title}</title>
+<link rel="shortcut icon" type="image/png" href="/favicon.png">

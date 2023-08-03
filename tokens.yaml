@@ -1,0 +1,96 @@
+color:
+  $type: color
+  brands:
+    black:
+      $value: oklch(0% 0 0)
+    pink:
+      $value: oklch(69.33% 0.153 6.97)
+    tan:
+      $value: oklch(96.08% 0.01 93.57)
+  intercom-blue:
+    $value: oklch(57.61% 0.199 256.95)
+  loom-purple:
+    $value: oklch(54.03% 0.117 340.84)
+  mode-green:
+    $value: oklch(72.69% 0.125 126.66)
+ease:
+  $type: cubicBezier
+  linear:
+    $value: [0, 0, 1, 1]
+timing:
+  $type: duration
+  quick:
+    $value: 100ms
+  moderate:
+    $value: 200ms
+  deliberate:
+    $value: 400ms
+  slow:
+    $value: 1000ms
+transition:
+  $type: transition
+  linear-quick:
+    $value:
+      timingFunction: '{ease.linear}'
+      duration: '{timing.quick}'
+  linear-moderate:
+    $value:
+      timingFunction: '{ease.linear}'
+      duration: '{timing.moderate}'
+  linear-deliberate:
+    $value:
+      timingFunction: '{ease.linear}'
+      duration: '{timing.deliberate}'
+  linear-slow:
+    $value:
+      timingFunction: '{ease.linear}'
+      duration: '{timing.slow}'
+typography:
+  $type: typography
+  base:
+    $value:
+      fontFamily: '{typography.family.body}'
+      fontSize: 1rem
+      fontWeight: 400
+      lineHeight: 1
+  body:
+    $value:
+      fontFamily: '{typography.family.body}'
+      fontSize: 1rem
+      fontWeight: 400
+      lineHeight: 1.5
+  caption:
+    $value:
+      fontFamily: '{typography.family.body}'
+      fontSizes: 0.9375rem
+      fontWeight: 400
+      lineHeight: 1.4
+      letterSpacing: -0.03281rem
+  longform:
+    $value:
+      fontFamily: '{typography.family.body}'
+      fontSize: 1.5rem
+      fontWeight: 400
+      lineHeight: 1.4
+      letterSpacing: -0.0525rem
+  heading:
+    $value:
+      fontFamily: '{typography.family.heading}'
+      fontSize: 1.5rem
+      fontWeight: 400
+      lineHeight: 1.2
+  family:
+    $type: fontFamily
+    body:
+      $value:
+        - Inter
+        - system-ui
+        - ui-sans-serif
+        - -apple-system
+        - Helvetica
+        - Arial
+        - sans-serif
+    heading:
+      $value:
+        - Roslindale Display
+        - serif

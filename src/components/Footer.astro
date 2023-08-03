@@ -1,0 +1,37 @@
+<footer class="wrapper">
+	<span class="copyright">© Brooks Chambers 2023</span>
+	<ul class="social">
+		<li><a href="https://linkedin.com/brookschambers" rel="noopener noreferrer">LinkedIn</a></li>
+		<li><a href="https://twitter.com/brookschambers" rel="noopener noreferrer">Twitter</a></li>
+		<li>hello@brookschambers.com</li>
+	</ul>
+</footer>
+
+<style lang="scss">
+	@use '../tokens' as *;
+
+	.wrapper {
+		@include typography('typography.caption');
+
+		display: grid;
+		padding: 1.25rem;
+
+		@media (min-width: 600px) {
+			grid-template-columns: 1fr 1fr;
+		}
+	}
+
+	.social {
+		align-items:center;
+		display: flex;
+		gap: 1.5rem;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+
+
+		@media (min-width: 600px) {
+			justify-content: flex-end;
+		}
+	}
+</style>
