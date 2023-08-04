@@ -21,12 +21,17 @@ const { orientation } = Astro.props;
 	.wrapper {
 		align-items: center;
 		display: grid;
-		grid-template-columns: 1fr 3fr;
 		margin: 0;
 		padding: 0;
 
+		@media (min-width: 600px) {
+			grid-template-columns: 1fr 3fr;
+		}
+
 		&--right {
-			grid-template-columns: 3fr 1fr;
+			@media (min-width: 600px) {
+				grid-template-columns: 3fr 1fr;
+			}
 		}
 	}
 
