@@ -1,1 +1,1 @@
-Intro copy
+Hi there; I’m Brooks. I’m a creative director and brand design leader based in Nashville, Tennessee. I came into creative direction by way of brand strategy and copywriting, thriving on both the big picture and the minute details of every brand I work with. I currently lead Brand Design at [Mode](https://www.mode.com).
