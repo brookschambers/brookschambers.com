@@ -1,1 +1,1 @@
-Mode is a cool product
+Mode is a business intelligence platform that clears the path from data to impact. Since joining, I’ve had the opportunity to build a Brand Studio from scratch while leading and creative directing an award-winning rebrand in partnership with the amazing teams at Gretel and Fuzzco.
