@@ -1,1 +1,1 @@
-Daffy Duck
+Credits: Gretel, Fuzzco, Gregg Taxerman, Cathy Kwon
