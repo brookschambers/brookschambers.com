@@ -43,7 +43,7 @@
   --typography-heading-font-weight: 400;
   --typography-heading-line-height: 1.2;
   --typography-family-body: Inter, system-ui, ui-sans-serif, -apple-system, Helvetica, Arial, sans-serif;
-  --typography-family-heading: "Roslindale Display", serif;
+  --typography-family-heading: "Roslindale Display", Georgia, serif;
 }
 
 @supports (color: color(display-p3 1 1 1)) {

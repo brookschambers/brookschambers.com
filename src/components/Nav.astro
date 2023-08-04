@@ -1,8 +1,10 @@
 <nav class="nav">
-	<li class="nav-item"><a class="nav-link nav-link--mode" href="#mode">Mode</a></li>
-	<li class="nav-item"><a class="nav-link nav-link--loom" href="#loom">Loom</a></li>
-	<li class="nav-item"><a class="nav-link nav-link--intercom" href="#intercom">Intercom</a></li>
-	<li class="nav-item"><a class="nav-link nav-link--personal" href="#personal">&amp; More</a></li>
+	<ul class="nav-inner">
+		<li class="nav-item"><a class="nav-link nav-link--mode" href="#mode">Mode</a></li>
+		<li class="nav-item"><a class="nav-link nav-link--loom" href="#loom">Loom</a></li>
+		<li class="nav-item"><a class="nav-link nav-link--intercom" href="#intercom">Intercom</a></li>
+		<li class="nav-item"><a class="nav-link nav-link--personal" href="#personal">&amp; More</a></li>
+	</ul>
 </nav>
 
 <style lang="scss">
@@ -13,14 +15,28 @@
 		display: flex;
 		font-family: token('typography.family.heading');
 		font-weight: 300;
-		font-size: 10vw;
-		gap: 0.25em;
+		font-size: 11.5vw;
 		letter-spacing: -0.03125em;
 		list-style: none;
 		overflow: hidden;
 		position: sticky;
-		top: 0;
 		text-transform: uppercase;
+		top: 0;
+		user-select: none;
+
+		@media (min-width: 600px) {
+			font-size: 10vw;
+		};
+
+		// never put padding on overflow container; put within
+		&-inner {
+			display: flex;
+			gap: 0.25em;
+			list-style: none;
+			margin: 0;
+			padding-left: 1rem;
+			padding-right: 1rem;
+		}
 
 		&-link {
 			text-decoration: none;

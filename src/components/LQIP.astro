@@ -1,0 +1,23 @@
+---
+export interface Props {
+	sizes: string[];
+	lqip: string;
+	width: number;
+	height: number;
+	alt?: string;
+	/** set object-position */
+	position?: {left?: string; top?: string};
+}
+
+const { sizes, lqip, width, height, alt, ...rest } = Astro.props;
+---
+
+<img class="lqip" src={sizes[0]} width={width} height={height} style={`background-image: url(${lqip});`} alt={alt} />
+
+<style lang="scss">
+.lqip {
+	background-repeat: no-repeat;
+	background-size: cover;
+	user-select: none;
+}
+</style>

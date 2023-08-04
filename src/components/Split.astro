@@ -1,0 +1,17 @@
+<div class="wrapper">
+	<slot />
+</div>
+
+<style lang="scss">
+	.wrapper {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+
+		> :global(*) {
+			height: 100%;
+			max-width: none;
+			object-fit: cover;
+			width: 100%;
+		}
+	}
+</style>

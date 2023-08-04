@@ -1,0 +1,20 @@
+---
+export interface Props {
+  src: string;
+	width: number;
+	height: number;
+	background?: string;
+}
+
+const { src, width, height, background } = Astro.props;
+---
+
+<video class="video" autoplay loop="true" muted preload width={width} height={height} style={`--bg: ${background};`}>
+	<source src={src} type="video/mp4" />
+</video>
+
+<style lang="scss">
+	.video {
+		background: var(--bg);
+	}
+</style>

@@ -93,4 +93,5 @@ typography:
     heading:
       $value:
         - Roslindale Display
+        - Georgia
         - serif

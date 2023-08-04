@@ -3,7 +3,7 @@ import { Content } from '../content/intro.md';
 ---
 
 <div class="wrapper">
-	<img width="600" height="828" class="illo" src="/assets/images/brooks-illo.png" alt="Illustration of Brooks Chambers’ face" />
+	<img width="600" height="828" class="illo" src="/assets/images/brooks-illo.svg" alt="Illustration of Brooks Chambers’ face" />
 	<div class="content">
 		<Content />
 	</div>
@@ -16,16 +16,30 @@ import { Content } from '../content/intro.md';
 		align-items: center;
 		display: grid;
 		gap: 5rem;
-		grid-template-columns: 1fr 3fr;
 		margin-left: auto;
 		margin-right: auto;
-		min-height: 30rem;
 		max-width: 52rem;
 		padding-left: 1.5rem;
 		padding-right: 1.5rem;
+		padding-top: 4rem;
+
+		@media (min-width: 600px) {
+			grid-template-columns: 1fr 3fr;
+			min-height: 30rem;
+			padding-top: 0;
+		}
 	}
 
 	.illo {
+		margin-left: auto;
+		margin-right: auto;
+		max-width: 12rem;
+
+		@media (min-width: 600px) {
+			margin-left: initial;
+			margin-right: initial;
+			max-width: 100%;
+		}
 	}
 
 	.content {

@@ -1,0 +1,49 @@
+---
+import clsx from 'clsx';
+
+export interface Props {
+	orientation: 'left' | 'right';
+}
+
+const { orientation } = Astro.props;
+---
+
+<figure class={clsx('wrapper', `wrapper--${orientation}`)}>
+	<figcaption class="caption">
+		<slot name="caption" />
+	</figcaption>
+	<div class="media">
+		<slot name="media" />
+	</div>
+</figure>
+
+<style lang="scss">
+	.wrapper {
+		align-items: center;
+		display: grid;
+		grid-template-columns: 1fr 3fr;
+		margin: 0;
+		padding: 0;
+
+		&--right {
+			grid-template-columns: 3fr 1fr;
+		}
+	}
+
+	.caption {
+		padding: 2.5rem;
+
+		.wrapper--right & {
+			order: 2;
+		}
+	}
+
+	.media {
+		display: flex;
+
+		> * {
+			height: 100%;
+			width: 100%;
+		}
+	}
+</style>
