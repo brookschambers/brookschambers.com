@@ -1,1 +1,1 @@
-Do you like this photo? I took it!
+I got into design by way of printmaking and learned color theory while mixing inks by hand. I still love any and every opportunity to bring brands to life in the physical world – there’s something so fun and rewarding about making something you can hold in your hands.
