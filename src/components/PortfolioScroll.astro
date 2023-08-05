@@ -1,62 +1,18 @@
 ---
-import LQIP from './LQIP.astro';
-import SideCaption from './SideCaption.astro';
-import Split from './Split.astro';
-import Video from './Video.astro';
-
-// Mode
-import { Content as ModeIntro } from '../content/mode.md';
-import { Content as ModeCredits } from '../content/mode-credits.md';
-import mode1 from '../images/mode/mode-website-mockup.png?w=1600&format=jpg&quality=80';
-import mode1lqip from '../images/mode/mode-website-mockup.png?lqip';
-import mode2 from '../images/mode/mode_logo_animation.mp4';
-import mode3 from '../images/mode/mode-marketing.svg?lqip';
-import mode4a from '../images/mode/mode_advertising_02.jpg';
-import mode4alqip from '../images/mode/mode_advertising_02.jpg?lqip';
-import mode4b from '../images/mode/mode_lanyards.jpg';
-import mode4blqip from '../images/mode/mode_lanyards.jpg?lqip';
-import mode5 from '../images/mode/mode-dispatch.svg?lqip';
-import mode6 from '../images/mode/mode_instagram_posts.mp4';
-import mode7 from '../images/mode/mode-literature.svg?lqip';
-import mode8 from '../images/mode/Mode_CS_14_Totebag.jpg?w=1600&format=jpg&quality=80';
-import mode8lqip from '../images/mode/Mode_CS_14_Totebag.jpg?lqip';
-import mode9 from '../images/mode/mode_report.jpg?w=1600&format=jpg&quality=80';
-import mode9lqip from '../images/mode/mode_report.jpg?lqip';
-
-// Intercom
+import Mode from './Mode.astro';
+import Loom from './Loom.astro';
 ---
 
 <section id="mode" class="section">
-	<LQIP sizes={[mode1]} lqip={mode1lqip.lqip} width={mode1lqip.width} height={mode1lqip.height} />
-	<SideCaption orientation="right">
-		<Video slot="media" src={mode2} width={1920} height={1080} background="rgb(29, 70, 52)" />
-		<div slot="caption">
-		  <div class="longform"><ModeIntro /></div>
-			<div class="caption"><ModeCredits /></div>
-		</div>
-	</SideCaption>
-	<div class="pad2">
-		<LQIP sizes={[mode3.src]} width={mode3.width} height={mode3.height} />
-	</div>
-	<Split>
-		<LQIP sizes={[mode4a]} lqip={mode4alqip.lqip} width={mode4alqip.width} height={mode4alqip.height} />
-		<LQIP sizes={[mode4b]} lqip={mode4blqip.lqip} width={mode4blqip.width} height={mode4blqip.height} />
-	</Split>
-	<div class="mxauto padt" style="max-width: 60rem; width: 60rem;">
-		<LQIP sizes={[mode5.src]} width={mode5.width} height={mode5.height} />
-	</div>
-	<Video slot="media" src={mode6} width={1920} height={1080} background="rgb(200, 209, 194)" />
-	<div class="pad1">
-		<LQIP sizes={[mode7.src]} width={mode7.width} height={mode7.height} />
-	</div>
-	<LQIP sizes={[mode8]} lqip={mode8lqip.lqip} width={mode8lqip.width} height={mode8lqip.height} />
-	<LQIP sizes={[mode9]} lqip={mode9lqip.lqip} width={mode9lqip.width} height={mode9lqip.height} />
+  <Mode />
 </section>
 
 <section id="loom" class="section">
+	<Loom />
 </section>
 
 <style lang="scss">
+	@use 'sass:math';
 	@use '../tokens' as *;
 
 	.section {
@@ -66,55 +22,5 @@ import mode9lqip from '../images/mode/mode_report.jpg?lqip';
 		> * {
 			width: 100%;
 		}
-	}
-
-	.caption {
-		@include typography('typography.caption');
-	}
-
-	.longform {
-		@include typography('typography.longform');
-	}
-
-	.pad1 {
-		padding: 1rem;
-
-		@media (min-width: 600px) {
-			padding: 2rem;
-		}
-	}
-
-	.pad2 {
-		padding: 1rem;
-
-		@media (min-width: 600px) {
-			padding: 4rem;
-		}
-	}
-
-	// top
-	.padt {
-		padding-top: 1rem;
-
-		@media (min-width: 600px) {
-			padding-top: 5rem;
-		}
-	}
-
-	// top-right-left
-	.padtrl {
-		padding-left: 1rem;
-		padding-right: 1rem;
-		padding-top: 1rem;
-
-		@media (min-width: 600px) {
-			padding-left: 4rem;
-			padding-right: 4rem;
-			padding-top: 2rem;
-		}
-	}
-
-	.svg {
-		width: 100%;
 	}
 </style>

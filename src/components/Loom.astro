@@ -1,0 +1,153 @@
+---
+import LQIP from './LQIP.astro';
+import Video from './Video.astro';
+
+// assets
+import { Content as LoomIntro } from '../content/loom.md';
+import { Content as LoomCredits } from '../content/loom-credits.md';
+import loom1 from '../images/loom/cancelled-meetings.png?w=1600&format=jpg&quality=80';
+import loom1lqip from '../images/loom/cancelled-meetings.png?lqip';
+import loom2 from '../images/loom/cancelled-meetings-scroll.jpg?w=1400&format=webp&quality=80';
+import loom2lqip from '../images/loom/cancelled-meetings-scroll.jpg?lqip';
+import loom3 from '../images/loom/cancelled-meetings-candle-teaser.png?w=1200&format=jpeg&quality=80';
+import loom3lqip from '../images/loom/cancelled-meetings-candle-teaser.png?lqip';
+import loom4 from '../images/loom/loom-logo.svg';
+import loom5a from '../images/loom/loom-block-a.png?w=800&format=jpg&quality=80';
+import loom5alqip from '../images/loom/loom-block-a.png?lqip';
+import loom5b from '../images/loom/loom-block-b.png?w=800&format=jpg&quality=80';
+import loom5blqip from '../images/loom/loom-block-b.png?lqip';
+import loom5c from '../images/loom/loom-block-c.png?w=800&format=jpg&quality=80';
+import loom5clqip from '../images/loom/loom-block-c.png?lqip';
+import loom5d from '../images/loom/loom-block-d.png?w=800&format=jpg&quality=80';
+import loom5dlqip from '../images/loom/loom-block-d.png?lqip';
+import loom5e from '../images/loom/loom-block-e.png?w=800&format=jpg&quality=80';
+import loom5elqip from '../images/loom/loom-block-e.png?lqip';
+import loom5f from '../images/loom/loom-block-f.png?w=800&format=jpg&quality=80';
+import loom5flqip from '../images/loom/loom-block-f.png?lqip';
+import loom6 from '../images/loom/loom-workspace.png?w=1600&format=jpg&quality=80';
+import loom6lqip from '../images/loom/loom-workspace.png?lqip';
+import loom7 from '../images/loom/loom-enterprise.png?w=1600&format=jpg&quality=80';
+import loom7lqip from '../images/loom/loom-enterprise.png?lqip';
+import loom8 from '../images/loom/loom-galaxy.jpg?w=1600&format=jpg&quality=80';
+import loom8lqip from '../images/loom/loom-galaxy.jpg?lqip';
+import loom9 from '../images/loom/Loom-Sandwich-Explainer-Video.mp4';
+import loom9poster from '../images/loom/Loom-Sandwich-Explainer-Video-poster.jpg?w=1600&format=webp&quality=80';
+import loom10 from '../images/loom/loom10.png?w=1600&format=jpg&quality=80';
+import loom10lqip from '../images/loom/loom10.png?lqip';
+import loom11 from '../images/loom/loom11.png?w=1600&format=jpg&quality=80';
+import loom11lqip from '../images/loom/loom11.png?lqip';
+---
+
+<div class="intro">
+	<div class="intro-inner">
+		<div class="longform"><LoomIntro /></div>
+		<div class="credits"><LoomCredits /></div>
+	</div>
+</div>
+<LQIP sizes={[loom1]} lqip={loom1lqip.lqip} width={loom1lqip.width} height={loom1lqip.height} />
+<div style="display: grid;grid-template-columns: 3fr 1fr;">
+	<div class="autoscroll">
+		<div class="autoscroll-inner">
+			<LQIP sizes={[loom2]} lqip={loom2lqip.lqip} width={loom2lqip.width} height={loom2lqip.height} />
+			<LQIP sizes={[loom2]} lqip={loom2lqip.lqip} width={loom2lqip.width} height={loom2lqip.height} />
+		</div>
+	</div>
+	<LQIP sizes={[loom3]} lqip={loom3lqip.lqip} width={loom3lqip.width} height={loom3lqip.height} />
+</div>
+<div class="loom-logo-container">
+	<img src={loom4} class="loom-logo" width="1020" height="854" />
+</div>
+<div class="card-grid">
+	<LQIP sizes={[loom5a]} lqip={loom5alqip.lqip} width={loom5alqip.width} height={loom5alqip.height} />
+	<LQIP sizes={[loom5b]} lqip={loom5blqip.lqip} width={loom5blqip.width} height={loom5blqip.height} />
+	<LQIP sizes={[loom5c]} lqip={loom5clqip.lqip} width={loom5clqip.width} height={loom5clqip.height} />
+	<LQIP sizes={[loom5d]} lqip={loom5dlqip.lqip} width={loom5dlqip.width} height={loom5dlqip.height} />
+	<LQIP sizes={[loom5e]} lqip={loom5elqip.lqip} width={loom5elqip.width} height={loom5elqip.height} />
+	<LQIP sizes={[loom5f]} lqip={loom5flqip.lqip} width={loom5flqip.width} height={loom5flqip.height} />
+</div>
+<LQIP sizes={[loom6]} lqip={loom6lqip.lqip} width={loom6lqip.width} height={loom6lqip.height} />
+<LQIP sizes={[loom7]} lqip={loom7lqip.lqip} width={loom7lqip.width} height={loom7lqip.height} />
+<LQIP sizes={[loom8]} lqip={loom8lqip.lqip} width={loom8lqip.width} height={loom8lqip.height} />
+<Video src={loom9} poster={loom9poster} width={1920} height={1080} />
+<LQIP sizes={[loom10]} lqip={loom10lqip.lqip} width={loom10lqip.width} height={loom10lqip.height} />
+<LQIP sizes={[loom11]} lqip={loom11lqip.lqip} width={loom11lqip.width} height={loom11lqip.height} />
+
+<style lang="scss">
+	@use '../tokens' as *;
+
+	@keyframes scroll {
+		0% {
+			transform: translate3d(0, 0, 0);
+		}
+		100% {
+			transform: translate3d(0, -50%, 0);
+		}
+	}
+
+	.autoscroll {
+		overflow: hidden;
+		position: relative;
+		transform: translate3d(0, 0, 0);
+		z-index: 10;
+		width: 100%;
+
+		&-inner {
+			animation: scroll linear 30s infinite;
+			display: flex;
+			flex-direction: column;
+			left: 0;
+			top: 0;
+			position: absolute;
+			width: 100%;
+
+			@media (prefers-reduced-motion) {
+				animation: none;
+			}
+		}
+	}
+
+	.caption {
+		@include typography('typography.caption');
+	}
+
+	.card-grid {
+		display: grid;
+		gap: 1rem;
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-rows: repeat(2, 1fr);
+		padding: 2.5rem;
+	}
+
+	.intro {
+		display: flex;
+		align-items: center;
+		min-height: 50vw;
+		justify-content: center;
+	}
+
+	.intro-inner {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+		max-width: 60rem;
+	}
+
+	.logo {
+		height: auto;
+		max-width: 60rem;
+		width: 100%;
+	}
+
+	.logo-container {
+		align-items: center;
+		display: flex;
+		min-height: 50vw;
+		justify-content: center;
+		padding-left: 2.5rem;
+		padding-right: 2.5rem;
+	}
+
+	.longform {
+		@include typography('typography.longform');
+	}
+</style>

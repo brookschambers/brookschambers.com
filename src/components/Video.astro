@@ -4,12 +4,13 @@ export interface Props {
 	width: number;
 	height: number;
 	background?: string;
+	poster?: string;
 }
 
-const { src, width, height, background } = Astro.props;
+const { src, width, height, background, poster } = Astro.props;
 ---
 
-<video class="video" autoplay loop="true" muted preload width={width} height={height} style={`--bg: ${background};`}>
+<video class="video" autoplay loop="true" muted preload width={width} height={height} poster={poster} style={background ? `--bg: ${background};` : undefined}>
 	<source src={src} type="video/mp4" />
 </video>
 
