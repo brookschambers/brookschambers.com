@@ -1,11 +1,88 @@
-<nav class="nav">
-	<ul class="nav-inner">
-		<li class="nav-item"><a class="nav-link nav-link--mode" href="#mode">Mode</a></li>
-		<li class="nav-item"><a class="nav-link nav-link--loom" href="#loom">Loom</a></li>
-		<li class="nav-item"><a class="nav-link nav-link--intercom" href="#intercom">Intercom</a></li>
-		<li class="nav-item"><a class="nav-link nav-link--personal" href="#personal">&amp; More</a></li>
+<div id="portfolio-start"></div>
+
+<nav id="nav" class="nav" style="--x: 0px">
+	<ul id="nav-inner" class="nav-inner">
+		<li class="nav-item">
+			<a id="mode-nav-link" class="nav-link nav-link--mode" href="#mode">Mode</a>
+		</li>
+		<li class="nav-item">
+			<a id="loom-nav-link" class="nav-link nav-link--loom" href="#loom">Loom</a>
+		</li>
+		<li class="nav-item">
+			<a id="intercom-nav-link" class="nav-link nav-link--intercom" href="#intercom">Intercom</a>
+		</li>
+		<li class="nav-item">
+			<a id="personal-nav-link" class="nav-link nav-link--personal" href="#personal">&amp; More</a>
+		</li>
 	</ul>
 </nav>
+
+<script>
+	const PORTFOLIO_START = 'portfolio-start';
+	const nav = document.getElementById('nav');
+	const navLinks = nav.querySelectorAll('.nav-link');
+
+  // state
+	let lastX = 0;
+
+	// update highlighted item
+	const io = new IntersectionObserver((entries) => {
+		let activeItem = undefined;
+
+		// this is confusing logic, but basically this scenario where there is only one changed observed entry,
+		// and that’s the top pixel of the portfolio, and it just left the screen, then the user must have _just_ scrolled in
+		const justEnteredPortfolio = entries.length === 1 && entries[0].target.id === PORTFOLIO_START && !entries[0].isIntersecting;
+		// likewise, the opposite is true—if there’s only one entry, and it was top pixel of the portfolio appearing again,
+		// the user just existed the portfolio
+		const justExitedPortfolio = entries.length === 1 && entries[0].target.id === PORTFOLIO_START && entries[0].isIntersecting;
+
+		if (justExitedPortfolio) {
+			for (const link of navLinks) {
+				link.removeAttribute('aria-step');
+			}
+			return;
+		}
+		if (justEnteredPortfolio) {
+			activeItem = 'mode';
+		} else {
+			for (const entry of entries) {
+				if (entry.target.id !== PORTFOLIO_START && entry.isIntersecting) {
+					activeItem = entry.target.id;
+					break;
+				}
+			}
+		}
+
+		if (!activeItem) {
+			return;
+		}
+
+		for (const link of navLinks) {
+			if (link.id === `${activeItem}-nav-link`) {
+				// handle highlight
+				link.setAttribute('aria-step', 'current');
+
+				// scroll to current element
+				const linkRect = link.getBoundingClientRect();
+				const navRect = nav.getBoundingClientRect();
+				const next = -linkRect.left + (0.5 * (window.innerWidth - linkRect.width)) + lastX;
+				const clamped = Math.max(Math.min(next, 0), -navRect.width + linkRect.width); // don’t scroll past first or last item
+				if (lastX !== clamped) {
+					lastX = clamped;
+					nav.style.setProperty('--x', `${clamped}px`);
+				}
+			} else {
+				link.removeAttribute('aria-step');
+			}
+		}
+	});
+
+	io.observe(document.getElementById(PORTFOLIO_START));
+	io.observe(document.getElementById('mode'));
+	io.observe(document.getElementById('loom'));
+	io.observe(document.getElementById('intercom'));
+	io.observe(document.getElementById('personal'));
+</script>
 
 <style lang="scss">
 	@use '../tokens' as *;
@@ -38,6 +115,8 @@
 			margin: 0;
 			padding-left: 1rem;
 			padding-right: 1rem;
+			transform: translate3d(var(--x), 0, 0);
+			transition: transform 750ms cubic-bezier(0.65, 0, 0.35, 1);
 		}
 
 		&-link {

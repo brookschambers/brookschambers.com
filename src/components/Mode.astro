@@ -39,7 +39,7 @@ import mode9lqip from '../images/mode/mode_report.jpg?lqip';
 	<LQIP sizes={[mode4a]} lqip={mode4alqip.lqip} width={mode4alqip.width} height={mode4alqip.height} />
 	<LQIP sizes={[mode4b]} lqip={mode4blqip.lqip} width={mode4blqip.width} height={mode4blqip.height} style="object-position: 75% 50%" />
 </Split>
-<div class="mxauto padt" style="max-width: 60rem; width: 60rem;">
+<div class="dispatch">
 	<LQIP sizes={[mode5.src]} width={mode5.width} height={mode5.height} />
 </div>
 <Video slot="media" src={mode6} width={1920} height={1080} background="rgb(200, 209, 194)" />
@@ -53,6 +53,24 @@ import mode9lqip from '../images/mode/mode_report.jpg?lqip';
 	@use '../tokens' as *;
 	.caption {
 		@include typography('typography.caption');
+	}
+
+	.dispatch {
+		align-items: flex-end;
+		display: flex;
+		justify-content: center;
+
+		@media (min-width: 600px) {
+			height: 62.5vw;
+			padding-left: 4rem;
+			padding-right: 4rem;
+			padding-top: 4rem;
+
+			> :global(*) {
+				height: 100%;
+				width: auto;
+			}
+		}
 	}
 
 	.longform {
@@ -81,19 +99,6 @@ import mode9lqip from '../images/mode/mode_report.jpg?lqip';
 
 		@media (min-width: 600px) {
 			padding-top: 5rem;
-		}
-	}
-
-	// top-right-left
-	.padtrl {
-		padding-left: 1rem;
-		padding-right: 1rem;
-		padding-top: 1rem;
-
-		@media (min-width: 600px) {
-			padding-left: 4rem;
-			padding-right: 4rem;
-			padding-top: 2rem;
 		}
 	}
 </style>

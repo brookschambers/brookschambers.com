@@ -5,19 +5,19 @@ import Mode from './Mode.astro';
 import Personal from './Personal.astro';
 ---
 
-<section id="mode" class="section">
+<section id="mode" class="portfolio-section">
   <Mode />
 </section>
 
-<section id="loom" class="section">
+<section id="loom" class="portfolio-section">
 	<Loom />
 </section>
 
-<section id="intercom" class="section">
+<section id="intercom" class="portfolio-section">
 	<Intercom />
 </section>
 
-<section id="personal" class="section">
+<section id="personal" class="portfolio-section">
 	<Personal />
 </section>
 
@@ -25,7 +25,7 @@ import Personal from './Personal.astro';
 	@use 'sass:math';
 	@use '../tokens' as *;
 
-	.section {
+	.portfolio-section {
 		display: flex;
 		flex-direction: column;
 
