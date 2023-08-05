@@ -1,0 +1,130 @@
+---
+import LQIP from './LQIP.astro';
+import SideCaption from './SideCaption.astro';
+
+// assets
+import { Content as PersonalIntro } from '../content/more.md';
+import { Content as Personal2 } from '../content/more-2.md';
+import personal1 from '../images/personal/sword-in-the-stone.png?w=1600&format=webp&quality=80';
+import personal1lqip from '../images/personal/sword-in-the-stone.png?lqip';
+import personal2a from '../images/personal/Baba-Yaga-Skull.png?w=1600&format=jpg&quality=80';
+import personal2alqip from '../images/personal/Baba-Yaga-Skull.png?lqip';
+import personal2b from '../images/personal/Lute.png?w=1600&format=jpg&quality=80';
+import personal2blqip from '../images/personal/Lute.png?lqip';
+import personal2c from '../images/personal/Grail.png?w=1600&format=jpg&quality=80';
+import personal2clqip from '../images/personal/Grail.png?lqip';
+import personal3a from '../images/personal/marble-gal-seafoam-beach.png?w=1600&format=jpg&quality=80';
+import personal3alqip from '../images/personal/marble-gal-seafoam-beach.png?lqip';
+import personal3b from '../images/personal/Marble-Avatar-500-01.png?w=1600&format=jpg&quality=80';
+import personal3blqip from '../images/personal/Marble-Avatar-500-01.png?lqip';
+import personal4a from '../images/personal/melting-finger.png?w=1600&format=jpg&quality=80';
+import personal4alqip from '../images/personal/melting-finger.png?lqip';
+import personal4b from '../images/personal/melting-muzzle.png?w=1600&format=jpg&quality=80';
+import personal4blqip from '../images/personal/melting-muzzle.png?lqip';
+import personal5 from '../images/personal/inky.jpg?lqip';
+import personal6 from '../images/personal/drippy.jpg?w=1800&format=jpg&quality=80';
+import personal6lqip from '../images/personal/drippy.jpg?lqip';
+import personal7 from '../images/personal/my-back.jpg?lqip';
+---
+
+<div class="intro">
+	<div class="intro-inner">
+		<div class="longform"><PersonalIntro /></div>
+	</div>
+</div>
+<div class="sits">
+	<LQIP sizes={[personal1]} lqip={personal1lqip.lqip} width={personal1lqip.width} height={personal1lqip.height} />
+</div>
+<div class="three-up">
+	<LQIP sizes={[personal2a]} lqip={personal2alqip.lqip} width={personal2alqip.width} height={personal2alqip.height} />
+	<LQIP sizes={[personal2b]} lqip={personal2blqip.lqip} width={personal2blqip.width} height={personal2blqip.height} />
+	<LQIP sizes={[personal2c]} lqip={personal2clqip.lqip} width={personal2clqip.width} height={personal2clqip.height} />
+</div>
+<div class="two-up">
+	<LQIP sizes={[personal3a]} lqip={personal3alqip.lqip} width={personal3alqip.width} height={personal3alqip.height} />
+	<LQIP sizes={[personal3b]} lqip={personal3blqip.lqip} width={personal3blqip.width} height={personal3blqip.height} />
+</div>
+<div class="two-up">
+	<LQIP sizes={[personal4a]} lqip={personal4alqip.lqip} width={personal4alqip.width} height={personal4alqip.height} />
+	<LQIP sizes={[personal4b]} lqip={personal4blqip.lqip} width={personal4blqip.width} height={personal4blqip.height} />
+</div>
+<SideCaption orientation="right">
+	 <LQIP slot="media" sizes={[personal5.src]} lqip={personal5.lqip} width={personal5.width} height={personal5.height} />
+	 <div slot="caption">
+			<div class="longform"><Personal2 /></div>
+	 </div>
+</SideCaption>
+<LQIP sizes={[personal6]} lqip={personal6lqip.lqip} width={personal6lqip.width} height={personal6lqip.height} />
+<div class="the-end">
+	<LQIP sizes={[personal7.src]} lqip={personal7.lqip} width={personal7.width} height={personal7.height} />
+</div>
+
+<style lang="scss">
+	@use '../tokens' as *;
+
+	.intro {
+		align-items: center;
+		display: flex;
+		min-height: 75vw;
+		justify-content: center;
+		padding: 2rem;
+
+		@media (min-width: 600px) {
+			height: 50vh;
+			min-height: none;
+		}
+	}
+
+	.intro-inner {
+		max-width: 60rem;
+	}
+
+	.sits {
+		align-items: flex-end;
+		display: flex;
+		justify-content: center;
+
+		@media (min-width: 600px) {
+			height: 50vw;
+		}
+
+		> :global(*) {
+			@media (min-width: 600px) {
+				height: 100%;
+				width: auto;
+			}
+		}
+	}
+
+	.the-end {
+		@media (min-width: 600px) {
+			display: flex;
+			justify-content: center;
+			height: 50vw;
+		}
+
+		> :global(*) {
+			@media (min-width: 600px) {
+				height: 100%;
+				width: auto;
+			}
+		}
+	}
+
+	.two-up,
+	.three-up {
+		@media (min-width: 600px) {
+			padding: 2rem;
+			display: grid;
+			gap: 2rem;
+		}
+	}
+
+	.three-up {
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	.two-up {
+		grid-template-columns: repeat(2, 1fr);
+	}
+</style>

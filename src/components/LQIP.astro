@@ -11,7 +11,18 @@ export interface Props {
 const { sizes, lqip, width, height, alt, ...rest } = Astro.props;
 ---
 
-<img {...rest} class="lqip" src={sizes[0]} width={width} height={height} style={lqip ? `background-image: url(${lqip});` : undefined} alt={alt} />
+<img class="lqip" src={sizes[0]} width={width} height={height} style={lqip ? `background-image: url(${lqip});` : undefined} alt={alt} />
+
+<script>
+	// remove LQIP on image load (needed for tranparent images)
+	function handleLoad(evt) {
+		evt.target.style.removeProperty('background-image');
+	}
+
+	for (const el of document.querySelectorAll('.lqip')) {
+		el.addEventListener('load', handleLoad);
+	}
+</script>
 
 <style lang="scss">
 .lqip {

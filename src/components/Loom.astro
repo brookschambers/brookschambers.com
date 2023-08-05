@@ -45,7 +45,7 @@ import loom11lqip from '../images/loom/loom11.png?lqip';
 	</div>
 </div>
 <LQIP sizes={[loom1]} lqip={loom1lqip.lqip} width={loom1lqip.width} height={loom1lqip.height} />
-<div style="display: grid;grid-template-columns: 3fr 1fr;">
+<div class="pair">
 	<div class="autoscroll">
 		<div class="autoscroll-inner">
 			<LQIP sizes={[loom2]} lqip={loom2lqip.lqip} width={loom2lqip.width} height={loom2lqip.height} />
@@ -119,6 +119,7 @@ import loom11lqip from '../images/loom/loom11.png?lqip';
 		align-items: center;
 		min-height: 50vw;
 		justify-content: center;
+		padding: 2rem;
 	}
 
 	.intro-inner {
@@ -141,5 +142,12 @@ import loom11lqip from '../images/loom/loom11.png?lqip';
 		justify-content: center;
 		padding-left: 2.5rem;
 		padding-right: 2.5rem;
+	}
+
+	.pair {
+		@media (min-width: 600px) {
+			display: grid;
+			grid-template-columns: 3fr 1fr;
+		}
 	}
 </style>

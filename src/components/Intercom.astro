@@ -84,13 +84,18 @@ import intercom17lqip from '../images/intercom/intercomrebrand_guidelines_opt.jp
 .tallguy {
 	align-items: center;
 	display: flex;
-	height: 150vh;
 	justify-content: center;
-	max-height: 150vh;
+
+	@media (min-width: 600px) {
+		height: 150vh;
+		max-height: 150vh;
+	}
 
 	> :global(*) {
-		height: 100%;
-		width: auto;
+		@media (min-width: 600px) {
+			height: 100%;
+			width: auto;
+		}
 	}
 }
 </style>
