@@ -1,6 +1,7 @@
 ---
-import Mode from './Mode.astro';
+import Intercom from './Intercom.astro';
 import Loom from './Loom.astro';
+import Mode from './Mode.astro';
 ---
 
 <section id="mode" class="section">
@@ -11,6 +12,10 @@ import Loom from './Loom.astro';
 	<Loom />
 </section>
 
+<section id="intercom" class="section">
+	<Intercom />
+</section>
+
 <style lang="scss">
 	@use 'sass:math';
 	@use '../tokens' as *;
@@ -19,7 +24,7 @@ import Loom from './Loom.astro';
 		display: flex;
 		flex-direction: column;
 
-		> * {
+		> :global(*) {
 			width: 100%;
 		}
 	}

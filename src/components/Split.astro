@@ -1,11 +1,19 @@
-<div class="wrapper">
+---
+export interface Props {
+	split?: string;
+}
+
+const { split = '1fr 1fr' } = Astro.props;
+---
+
+<div class="wrapper" style={`--split: ${split}`}>
 	<slot />
 </div>
 
 <style lang="scss">
 	.wrapper {
 		display: grid;
-		grid-template-columns: 1fr 1fr;
+		grid-template-columns: var(--split);
 
 
 		> :global(*) {

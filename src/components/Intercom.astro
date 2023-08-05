@@ -1,0 +1,96 @@
+---
+import LQIP from './LQIP.astro';
+import SideCaption from './SideCaption.astro';
+import Split from './Split.astro';
+import Video from './Video.astro';
+
+// assets
+import { Content as IntercomIntro } from '../content/intercom.md';
+import { Content as IntercomCredits } from '../content/intercom-credits.md';
+import intercom1 from '../images/intercom/oycui_za_2.jpg?w=1600&format=jpg&quality=80';
+import intercom1lqip from '../images/intercom/oycui_za_2.jpg?lqip';
+import intercom2 from '../images/intercom/oycuioverview_2.jpg?w=1600&format=jpg&quality=80';
+import intercom2lqip from '../images/intercom/oycuioverview_2.jpg?lqip';
+import intercom3 from '../images/intercom/billboard2.jpg?w=1600&format=jpg&quality=80';
+import intercom3lqip from '../images/intercom/billboard2.jpg?lqip';
+import intercom4a from '../images/intercom/bart4b.jpg?w=1200&format=jpg&quality=80';
+import intercom4alqip from '../images/intercom/bart4b.jpg?lqip';
+import intercom4b from '../images/intercom/bart6b_cropped.jpg?w=1200&format=jpg&quality=80';
+import intercom4blqip from '../images/intercom/bart6b_cropped.jpg?lqip';
+import intercom5 from '../images/intercom/bart3b.jpg?w=1600&format=jpg&quality=80';
+import intercom5lqip from '../images/intercom/bart3b.jpg?lqip';
+import intercom6a from '../images/intercom/bart11e.jpg?w=1200&format=jpg&quality=80';
+import intercom6alqip from '../images/intercom/bart11e.jpg?lqip';
+import intercom6b from '../images/intercom/bart10a.jpg?w=1200&format=jpg&quality=80';
+import intercom6blqip from '../images/intercom/bart10a.jpg?lqip';
+import intercom7 from '../images/intercom/oycui-lp-video.mp4';
+import intercom7poster from '../images/intercom/oycui-lp-video-poster.jpg?w=1600&format=webp&quality=80';
+import intercom8 from '../images/intercom/videos.jpg?w=1600&format=jpg&quality=80';
+import intercom8lqip from '../images/intercom/videos.jpg?lqip';
+import intercom9 from '../images/intercom/youtube-know-what-makes-your-customers-really-click.mp4';
+import intercom9poster from '../images/intercom/youtube-know-what-makes-your-customers-really-click-poster.png?w=1200&format=webp&quality=80';
+import intercom10 from '../images/intercom/youtube-need-new-customers-now.mp4';
+import intercom10poster from '../images/intercom/youtube-need-new-customers-now-poster.png?w=1200&format=webp&quality=80';
+import intercom11 from '../images/intercom/youtube-looking-to-contact-your-leads.mp4';
+import intercom11poster from '../images/intercom/youtube-looking-to-contact-your-leads-poster.png?w=1200&format=webp&quality=80';
+import intercom12 from '../images/intercom/homepageanimation2.gif?lqip';
+import intercom13 from '../images/intercom/icrebrand_overview2-10.jpg?w=1800&format=jpg&quality=80';
+import intercom13lqip from '../images/intercom/icrebrand_overview2-10.jpg?lqip';
+import intercom14 from '../images/intercom/intercomrebrand_posters-opt.jpg?w=1600&format=jpg&quality=80';
+import intercom14lqip from '../images/intercom/intercomrebrand_posters-opt.jpg?lqip';
+import intercom15 from '../images/intercom/intercomrebrand_layout-17opt.jpg?w=1800&format=jpg&quality=80';
+import intercom15lqip from '../images/intercom/intercomrebrand_layout-17opt.jpg?lqip';
+import intercom16 from '../images/intercom/intercomrebrand_portraits-15_opt.jpg?w=1800&format=jpg&quality=80';
+import intercom16lqip from '../images/intercom/intercomrebrand_portraits-15_opt.jpg?lqip';
+import intercom17 from '../images/intercom/intercomrebrand_guidelines_opt.jpg?w=1800&format=jpg&quality=80';
+import intercom17lqip from '../images/intercom/intercomrebrand_guidelines_opt.jpg?lqip';
+---
+
+<LQIP sizes={[intercom1]} lqip={intercom1lqip.lqip} width={intercom1lqip.width} height={intercom1lqip.height} />
+<SideCaption>
+	<div slot="caption">
+		<div class="longform"><IntercomIntro /></div>
+		<div class="caption"><IntercomCredits /></div>
+	</div>
+	<LQIP slot="media" sizes={[intercom2]} lqip={intercom2lqip.lqip} width={intercom2lqip.width} height={intercom2lqip.height} />
+</SideCaption>
+<LQIP sizes={[intercom3]} lqip={intercom3lqip.lqip} width={intercom3lqip.width} height={intercom3lqip.height} />
+<Split>
+	<LQIP sizes={[intercom4a]} lqip={intercom4alqip.lqip} width={intercom4alqip.width} height={intercom4alqip.height} />
+	<LQIP sizes={[intercom4b]} lqip={intercom4blqip.lqip} width={intercom4blqip.width} height={intercom4blqip.height} />
+</Split>
+<LQIP sizes={[intercom5]} lqip={intercom5lqip.lqip} width={intercom5lqip.width} height={intercom5lqip.height} />
+<Split split="5fr 7fr">
+	<LQIP sizes={[intercom6a]} lqip={intercom6alqip.lqip} width={intercom6alqip.width} height={intercom6alqip.height} />
+	<LQIP sizes={[intercom6b]} lqip={intercom6blqip.lqip} width={intercom6blqip.width} height={intercom6blqip.height} />
+</Split>
+<Video src={intercom7} poster={intercom7poster} width={1920} height={1100} />
+<LQIP sizes={[intercom8]} lqip={intercom8lqip.lqip} width={intercom8lqip.width} height={intercom8lqip.height} />
+<Video src={intercom9} poster={intercom9poster} width={1280} height={720} />
+<Video src={intercom10} poster={intercom10poster} width={1280} height={720} />
+<Video src={intercom11} poster={intercom11poster} width={1280} height={720} />
+<LQIP sizes={[intercom12.src]} lqip={intercom12.lqip} width={intercom12.width} height={intercom12.height} />
+<LQIP sizes={[intercom13]} lqip={intercom13lqip.lqip} width={intercom13lqip.width} height={intercom13lqip.height} />
+<div class="tallguy">
+	<LQIP sizes={[intercom14]} lqip={intercom14lqip.lqip} width={intercom14lqip.width} height={intercom14lqip.height} />
+</div>
+<LQIP sizes={[intercom15]} lqip={intercom15lqip.lqip} width={intercom15lqip.width} height={intercom15lqip.height} />
+<LQIP sizes={[intercom16]} lqip={intercom16lqip.lqip} width={intercom16lqip.width} height={intercom16lqip.height} />
+<LQIP sizes={[intercom17]} lqip={intercom17lqip.lqip} width={intercom17lqip.width} height={intercom17lqip.height} />
+
+<style lang="scss">
+@use '../tokens' as *;
+
+.tallguy {
+	align-items: center;
+	display: flex;
+	height: 150vh;
+	justify-content: center;
+	max-height: 150vh;
+
+	> :global(*) {
+		height: 100%;
+		width: auto;
+	}
+}
+</style>

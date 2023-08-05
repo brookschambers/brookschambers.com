@@ -5,6 +5,11 @@ import lqip from 'vite-plugin-lqip';
 export default defineConfig({
 	site: 'https://brookschambers.com',
 	vite: {
-		plugins: [lqip(), imagetools()],
+		plugins: [
+			lqip(),
+			imagetools({
+				include: /^[^?]+\.(heic|heif|avif|jpeg|jpg|png|tiff|webp)(\?.*)?$/, // default, minus .gif
+			}),
+		],
 	},
 });

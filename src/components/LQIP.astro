@@ -5,14 +5,13 @@ export interface Props {
 	width: number;
 	height: number;
 	alt?: string;
-	/** set object-position */
-	position?: {left?: string; top?: string};
+	style?: string;
 }
 
 const { sizes, lqip, width, height, alt, ...rest } = Astro.props;
 ---
 
-<img class="lqip" src={sizes[0]} width={width} height={height} style={lqip ? `background-image: url(${lqip});` : undefined} alt={alt} />
+<img {...rest} class="lqip" src={sizes[0]} width={width} height={height} style={lqip ? `background-image: url(${lqip});` : undefined} alt={alt} />
 
 <style lang="scss">
 .lqip {

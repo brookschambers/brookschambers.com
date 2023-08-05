@@ -4,6 +4,7 @@
 ///
 @use 'sass:list';
 @use 'sass:math';
+@use '../tokens' as *;
 
 /// (M)argin
 // prettier-ignore
@@ -41,3 +42,11 @@
 .tac { text-align: center; } // prettier-ignore
 .tal { text-align: left; } // prettier-ignore
 .tar { text-align: right; }
+
+/// Typography
+.caption {
+	@include typography('typography.caption');
+}
+.longform {
+	@include typography('typography.longform');
+}
