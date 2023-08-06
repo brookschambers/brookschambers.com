@@ -135,6 +135,7 @@
 		position: sticky;
 		text-transform: uppercase;
 		top: 0;
+		transform: translateZ(0);
 		user-select: none;
 		transform: translate3d(0, 0, 0);
 		z-index: 100;
@@ -152,6 +153,7 @@
 			padding: 0;
 			transform: translate3d(var(--x), 0, 0);
 			transition: transform 750ms cubic-bezier(0.65, 0, 0.35, 1);
+			z-index: 2;
 		}
 
 		&-item:first-of-type .nav-link {
@@ -163,9 +165,11 @@
 		}
 
 		&-link {
+			display: block;
 			padding-left: 0.125em;
 			padding-right: 0.125em;
 			text-decoration: none;
+			transform: translateZ(0);
 			transition: color token('transition.linear-quick');
 			white-space: nowrap;
 
