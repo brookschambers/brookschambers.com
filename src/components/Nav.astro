@@ -130,7 +130,8 @@
 		font-size: 11.5vw;
 		letter-spacing: -0.03125em;
 		list-style: none;
-		overflow: hidden;
+		overflow-x: auto; // on mobile, allow scroll
+		overflow-y: hidden;
 		position: sticky;
 		text-transform: uppercase;
 		top: 0;
@@ -140,6 +141,7 @@
 
 		@media (min-width: 600px) {
 			font-size: 10vw;
+			overflow-x: hidden;
 		};
 
 		// never put padding on overflow container; put within
