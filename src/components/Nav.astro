@@ -20,8 +20,8 @@
 <script>
 	import BezierEasing from 'bezier-easing';
 
-	const nav = document.getElementById('nav')!;
-	const navLinks = nav.querySelectorAll('.nav-link');
+	const nav = document.getElementById('nav')! as HTMLDivElement;
+	const navLinks = nav.querySelectorAll<HTMLAnchorElement>('.nav-link');
 	const cubicInOut = BezierEasing(0.65, 0, 0.35, 1);
 
 	let thresholds: [string, number][] = [];
@@ -64,6 +64,7 @@
 		if (foundId) {
 			// don’t scroll too far left (Math.min) or too far right (Math.max) such that there’s whitespace on either side of the nav
 			const nextX = Math.round(Math.max(Math.min(-activeX + (0.5 * (window.innerWidth - activeWidth)), 0), -maxWidth + window.innerWidth));
+			if (nav.scrollLeft !== 0) nav.scrollTo({ left: 0 }); // mobile only: users can scroll; reset to 0
 			nav.style.setProperty('--x', `${nextX}px`);
 			history.replaceState({}, '', `#${id}`);
 		}
