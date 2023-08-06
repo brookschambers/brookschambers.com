@@ -12,15 +12,17 @@ const { split = '1fr 1fr' } = Astro.props;
 
 <style lang="scss">
 	.wrapper {
-		display: grid;
 		grid-template-columns: var(--split);
 
+		@media (min-width: 600px) {
+			display: grid;
 
-		> :global(*) {
-			height: 100%;
-			max-width: none;
-			object-fit: cover;
-			width: 100%;
+			> :global(*) {
+				height: 100%;
+				max-width: none;
+				object-fit: cover;
+				width: 100%;
+			}
 		}
 	}
 </style>

@@ -149,14 +149,22 @@
 			display: flex;
 			list-style: none;
 			margin: 0;
-			padding-left: 1rem;
-			padding-right: 1rem;
+			padding: 0;
 			transform: translate3d(var(--x), 0, 0);
 			transition: transform 750ms cubic-bezier(0.65, 0, 0.35, 1);
 		}
 
+		&-item:first-of-type .nav-link {
+			padding-left: 0.15625em;
+		}
+
+		&-item:last-of-type .nav-link {
+			padding-right: 0.15625em;
+		}
+
 		&-link {
-			padding-right: 0.25em;
+			padding-left: 0.125em;
+			padding-right: 0.125em;
 			text-decoration: none;
 			transition: color token('transition.linear-quick');
 			white-space: nowrap;
