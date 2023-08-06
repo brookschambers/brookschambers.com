@@ -54,8 +54,8 @@ import loom11lqip from '../images/loom/loom11.png?lqip';
 	</div>
 	<LQIP sizes={[loom3]} lqip={loom3lqip.lqip} width={loom3lqip.width} height={loom3lqip.height} />
 </div>
-<div class="loom-logo-container">
-	<img src={loom4} class="loom-logo" width="1020" height="854" />
+<div class="logo-container">
+	<img src={loom4} class="logo" width="1020" height="854" />
 </div>
 <div class="card-grid">
 	<LQIP sizes={[loom5a]} lqip={loom5alqip.lqip} width={loom5alqip.width} height={loom5alqip.height} />
@@ -85,11 +85,16 @@ import loom11lqip from '../images/loom/loom11.png?lqip';
 	}
 
 	.autoscroll {
+		min-height: 75vw;
 		overflow: hidden;
 		position: relative;
 		transform: translate3d(0, 0, 0);
 		z-index: 10;
 		width: 100%;
+
+		@media (min-width: 600px) {
+			min-height: none;
+		}
 
 		&-inner {
 			animation: scroll linear 30s infinite;
@@ -140,8 +145,7 @@ import loom11lqip from '../images/loom/loom11.png?lqip';
 		display: flex;
 		min-height: 50vw;
 		justify-content: center;
-		padding-left: 2.5rem;
-		padding-right: 2.5rem;
+		padding: 2.5rem;
 	}
 
 	.pair {

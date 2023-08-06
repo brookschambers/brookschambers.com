@@ -1,19 +1,64 @@
 <header class="wrapper">
-	<h1 class="name">Brooks Chambers</h1>
-	<span class="title">Creative Director</span>
-	<span class="email">hello@brookschambers.com</span>
+	<div class="desktop">
+		<h1 class="name">Brooks Chambers</h1>
+		<span class="title">Creative Director</span>
+		<span class="email">hello@brookschambers.com</span>
+	</div>
+	<div class="mobile">
+		<h1 class="name">Brooks Chambers</h1>
+		<button id="mobile-nav-btn" type="button" class="hamburger" aria-controls="mobile-menu" aria-expanded="false" aria-label="Mobile Menu">
+			<div class="hamburger-inner">
+				<div class="hamburger-line hamburger-line--top"></div>
+				<div class="hamburger-line hamburger-line--middle"></div>
+				<div class="hamburger-line hamburger-line--bottom"></div>
+			</div>
+		</button>
+		<nav id="mobile-menu" class="menu" hidden>
+			<li class="menu-item menu-item--full">hello@brookschambers.com</li>
+			<li class="menu-item"><a href="/assets/brooks-chambers-résumé.pdf" rel="noopener noreferrer">Résumé</a></li>
+			<li class="menu-item"><a href="https://www.linkedin.com/in/brooks-chambers" rel="noopener noreferrer">LinkedIn</a></li>
+			<li class="menu-item"><a href="https://twitter.com/BrooksChambers" rel="noopener noreferrer">Twitter</a></li>
+		</nav>
+	</div>
 </header>
+
+<script>
+	const btn = document.getElementById('mobile-nav-btn')!
+	const menu = document.getElementById('mobile-menu')!
+
+	btn.addEventListener('click', (evt) => {
+		evt.preventDefault();
+		const isOpen = btn.getAttribute('aria-expanded') === 'true';
+		if (isOpen) {
+			btn.setAttribute('aria-expanded', 'false');
+			menu.setAttribute('hidden', '');
+		}
+		else {
+			btn.setAttribute('aria-expanded', 'true');
+			menu.removeAttribute('hidden');
+		}
+	});
+</script>
 
 <style lang="scss">
 	@use '../tokens' as *;
 
 	.wrapper {
-		padding: 1.25rem;
+		--padding: 1.25rem;
+		padding: var(--padding);
 		display: grid;
 		gap: 0.5rem;
 
 		@media (min-width: 600px) {
 			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+
+	.desktop {
+		display: none;
+
+		@media (min-width: 600px) {
+			display: block;
 		}
 	}
 
@@ -24,6 +69,95 @@
 		margin: 0;
 		font-size: 1.25rem;
 		font-weight: 400;
+	}
+
+	.hamburger {
+		--size: 1.25rem;
+
+		background: none;
+		border: none;
+		height: calc(var(--size) + var(--padding) + var(--padding));
+		margin-right: calc(-1 * var(--padding));
+		margin-top: calc(-1 * var(--padding));
+		padding: 0 0 0 var(--padding);
+		transform: translate3d(0, 0, 0);
+		width: calc(var(--size) + var(--padding) + var(--padding));
+		z-index: 10;
+
+		&-inner {
+			display: flex;
+			flex-direction: column;
+			height: var(--size);
+			width: var(--size);
+			position: relative;
+			transition: transform 150ms cubic-bezier(0.33, 1, 0.68, 1);
+
+			.hamburger[aria-expanded='true'] & {
+				transform: rotate(-135deg);
+			}
+		}
+
+		&-line {
+			background-color: token('color.brands.black');
+			height: 1.5px;
+			left: 0;
+			position: absolute;
+			transition: transform 150ms cubic-bezier(0.33, 1, 0.68, 1);
+			width: var(--size);
+
+			&--top {
+				top: 0;
+				transform: translateY(calc(0.125 * var(--size)));
+
+				.hamburger[aria-expanded='true'] & {
+					transform: translateY(calc(0.5 * var(--size))) rotate(-90deg);
+				}
+			}
+
+			&--middle {
+				top: 50%;
+			}
+
+			&--bottom {
+				top: 100%;
+				transform: translateY(calc(-0.125 * var(--size)));
+
+				.hamburger[aria-expanded='true'] & {
+					transform: translateY(calc(-0.5 * var(--size))) rotate(-90deg);
+				}
+			}
+		}
+	}
+
+	.menu {
+		background-color: token('color.brands.tan');
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		left: 0;
+		list-style: none;
+		padding-bottom: 1.25rem;
+		padding-left: 1.25rem;
+		padding-right: 1.25rem;
+		position: absolute;
+		top: 3rem;
+		width: 100%;
+		z-index: 100;
+
+		&[hidden] {
+			display: none;
+		}
+
+		&-item {
+			&--full {
+				width: 100%;
+			}
+		}
+	}
+
+	.mobile {
+		display: flex;
+		justify-content: space-between;
 	}
 
 	.title {
