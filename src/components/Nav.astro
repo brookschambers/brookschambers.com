@@ -1,6 +1,6 @@
 <div id="portfolio-start"></div>
 
-<nav id="nav" class="nav" style="--x: 0px">
+<nav id="nav" class="nav">
 	<ul id="nav-inner" class="nav-inner">
 		<li class="nav-item">
 			<a id="mode-nav-link" class="nav-link nav-link--mode" href="#mode">Mode</a>
@@ -18,70 +18,105 @@
 </nav>
 
 <script>
-	const PORTFOLIO_START = 'portfolio-start';
-	const nav = document.getElementById('nav');
+	import BezierEasing from 'bezier-easing';
+
+	const nav = document.getElementById('nav')!;
 	const navLinks = nav.querySelectorAll('.nav-link');
+	const cubicInOut = BezierEasing(0.65, 0, 0.35, 1);
 
-  // state
-	let lastX = 0;
+	let thresholds: [string, number][] = [];
+	let lastActiveItem: string | undefined = undefined;
 
-	// update highlighted item
-	const io = new IntersectionObserver((entries) => {
-		let activeItem = undefined;
-
-		// this is confusing logic, but basically this scenario where there is only one changed observed entry,
-		// and that’s the top pixel of the portfolio, and it just left the screen, then the user must have _just_ scrolled in
-		const justEnteredPortfolio = entries.length === 1 && entries[0].target.id === PORTFOLIO_START && !entries[0].isIntersecting;
-		// likewise, the opposite is true—if there’s only one entry, and it was top pixel of the portfolio appearing again,
-		// the user just existed the portfolio
-		const justExitedPortfolio = entries.length === 1 && entries[0].target.id === PORTFOLIO_START && entries[0].isIntersecting;
-
-		if (justExitedPortfolio) {
-			for (const link of navLinks) {
-				link.removeAttribute('aria-step');
-			}
-			return;
+	function calculateThresholds() {
+		const nextThresholds: typeof thresholds = [];
+		for (const t of ['mode', 'loom', 'intercom', 'personal']) {
+			nextThresholds.push([t, document.getElementById(t)!.getBoundingClientRect().top + scrollY - nav.getBoundingClientRect().height]);
 		}
-		if (justEnteredPortfolio) {
-			activeItem = 'mode';
-		} else {
-			for (const entry of entries) {
-				if (entry.target.id !== PORTFOLIO_START && entry.isIntersecting) {
-					activeItem = entry.target.id;
-					break;
-				}
-			}
-		}
+		thresholds = nextThresholds;
+	}
+	calculateThresholds(); // fire once on load
 
-		if (!activeItem) {
-			return;
-		}
+	function highlight(id?: string) {
+		if (id === lastActiveItem) return; // important: this check is why it’s performant—we don’t do any work or touch the DOM if nothing changed
+		let foundId = false;
 
+		let activeX = 0;
+		let activeWidth = 0;
+		let maxWidth = 0;
 		for (const link of navLinks) {
-			if (link.id === `${activeItem}-nav-link`) {
-				// handle highlight
+			if (id && link.id === `${id}-nav-link`) {
+				// color
 				link.setAttribute('aria-step', 'current');
+				lastActiveItem = id;
+				foundId = true;
 
-				// scroll to current element
-				const linkRect = link.getBoundingClientRect();
-				const navRect = nav.getBoundingClientRect();
-				const next = -linkRect.left + (0.5 * (window.innerWidth - linkRect.width)) + lastX;
-				const clamped = Math.max(Math.min(next, 0), -navRect.width + linkRect.width); // don’t scroll past first or last item
-				if (lastX !== clamped) {
-					lastX = clamped;
-					nav.style.setProperty('--x', `${clamped}px`);
-				}
+				// calculate widths
+				activeX = maxWidth; // note: don’t use `x` beacuse this might be mid-animation; `width` will always be absolute
+				activeWidth = link.getBoundingClientRect().width;
+				maxWidth += activeWidth;
 			} else {
 				link.removeAttribute('aria-step');
+				maxWidth += link.getBoundingClientRect().width;
 			}
 		}
-	});
 
-	io.observe(document.getElementById(PORTFOLIO_START));
-	io.observe(document.getElementById('mode'));
-	io.observe(document.getElementById('loom'));
-	io.observe(document.getElementById('intercom'));
-	io.observe(document.getElementById('personal'));
+		// animate active item
+		if (foundId) {
+			// don’t scroll too far left (Math.min) or too far right (Math.max) such that there’s whitespace on either side of the nav
+			const nextX = Math.max(Math.min(-activeX + (0.5 * (window.innerWidth - activeWidth)), 0), -maxWidth + window.innerWidth);
+			nav.style.setProperty('--x', `${nextX}px`);
+			history.replaceState({}, '', `#${id}`);
+		}
+		// or reset to 0
+		else {
+			lastActiveItem = undefined;
+			nav.style.setProperty('--x', '0px');
+			history.replaceState({}, '', '#');
+		}
+	}
+
+	function handleScroll() {
+		let activeItem: string | undefined = undefined;
+		for (const [id, threshold] of thresholds) {
+			if (scrollY >= threshold) {
+				activeItem = id;
+			} else {
+				break;
+			}
+		}
+		highlight(activeItem)
+	}
+	handleScroll(); // fire once on load
+
+	addEventListener('scroll', handleScroll);
+	addEventListener('resize', calculateThresholds);
+
+	// click nav
+	for (const link of navLinks) {
+		link.addEventListener('click', (evt) => {
+			evt.preventDefault();
+			calculateThresholds();
+			scrollTo(Math.ceil(thresholds.find(([id]) => `${id}-nav-link` === link.id)![1]) + 1);
+		});
+	}
+
+	function scrollTo(y: number) {
+		let start: number | undefined;
+		const from = scrollY;
+		const delta = y - from;
+		const duration = Math.min(Math.max(Math.abs(delta) / 5, 250), 1500);
+
+		function scrollInner(t: number) {
+			if (!start) start = t;
+			const nextY = from + (delta * cubicInOut((t - start) / duration));
+			console.log(nextY);
+			window.scrollTo({ top: nextY });
+			if ((t - start) <= duration) {
+				requestAnimationFrame(scrollInner);
+			}
+		}
+		requestAnimationFrame(scrollInner);
+	}
 </script>
 
 <style lang="scss">
@@ -110,7 +145,6 @@
 		// never put padding on overflow container; put within
 		&-inner {
 			display: flex;
-			gap: 0.25em;
 			list-style: none;
 			margin: 0;
 			padding-left: 1rem;
@@ -120,6 +154,7 @@
 		}
 
 		&-link {
+			padding-right: 0.25em;
 			text-decoration: none;
 			transition: color token('transition.linear-quick');
 			white-space: nowrap;
