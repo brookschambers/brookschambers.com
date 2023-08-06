@@ -130,6 +130,7 @@
 		font-weight: 300;
 		font-size: 12vw;
 		letter-spacing: -0.03125em;
+		line-height: 1;
 		list-style: none;
 		overflow-x: auto; // on mobile, allow scroll
 		overflow-y: hidden;
@@ -150,6 +151,7 @@
 		&-inner {
 			display: flex;
 			list-style: none;
+			height: calc(15em / 16); // this is an all-caps menu, so trim juuuust a bit off the bottom so it is balanced (the built-in line height accounts for descenders which we don’t use here)
 			margin: 0;
 			padding: 0;
 			transform: translate3d(var(--x), 0, 0);
@@ -158,17 +160,17 @@
 		}
 
 		&-item:first-of-type .nav-link {
-			padding-left: 0.15625em;
+			padding-left: calc(5em / 32);
 		}
 
 		&-item:last-of-type .nav-link {
-			padding-right: 0.15625em;
+			padding-right: calc(5em / 32);
 		}
 
 		&-link {
 			display: block;
-			padding-left: 0.125em;
-			padding-right: 0.125em;
+			padding-left: calc(1em / 8);
+			padding-right: calc(1em / 8);
 			text-decoration: none;
 			transform: translateZ(0);
 			transition: color token('transition.linear-quick');
