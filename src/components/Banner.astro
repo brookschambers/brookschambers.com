@@ -45,20 +45,17 @@
 
 	.wrapper {
 		--padding: 1.25rem;
-		padding: var(--padding);
-		display: grid;
-		gap: 0.5rem;
 
-		@media (min-width: 600px) {
-			grid-template-columns: repeat(3, 1fr);
-		}
+		padding: var(--padding);
 	}
 
 	.desktop {
 		display: none;
 
 		@media (min-width: 600px) {
-			display: block;
+			display: grid;
+			gap: 0.5rem;
+			grid-template-columns: repeat(3, 1fr);
 		}
 	}
 
@@ -158,6 +155,10 @@
 	.mobile {
 		display: flex;
 		justify-content: space-between;
+
+		@media (min-width: 600px) {
+			display: none;
+		}
 	}
 
 	.title {
