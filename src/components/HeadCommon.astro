@@ -16,8 +16,15 @@ const { title = "Brooks Chambers", description = "The personal portfolio of Broo
 <meta property="og:site_name" content="Brooks Chambers">
 <meta property="og:title" content={title}>
 <meta property="og:description" content={description}>
-<meta property="og:image" content={`${Astro.site!.origin}/assets/social.png`}>
+<meta property="og:image" content={`${Astro.site!.origin}/social.png`}>
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@BrooksChambers">
+<meta name="twitter:creator" content="@BrooksChambers">
+<meta name="twitter:description" content={description}>
+<meta name="twitter:title" content={title}>
+<meta name="twitter:image" content={`${Astro.site!.origin}/social.png`}>
 <meta name="theme-color" content="#f4f2eb">
 <title>{title}</title>
+<link rel="canonical" href={Astro.url.href}>
 <link rel="shortcut icon" type="image/png" href="/favicon.png">
-<link rel="sitemap" href="/sitemap-index.xml" />
+<link rel="sitemap" href="/sitemap-index.xml">
