@@ -5,8 +5,6 @@ import Video from './Video.astro';
 // assets
 import { Content as LoomIntro } from '../content/loom.md';
 import { Content as LoomCredits } from '../content/loom-credits.md';
-import loom1 from '../images/loom/cancelled-meetings.png?w=1600&format=jpg&quality=80';
-import loom1lqip from '../images/loom/cancelled-meetings.png?lqip';
 import loom2 from '../images/loom/cancelled-meetings-scroll.jpg?w=1400&format=webp&quality=80';
 import loom2lqip from '../images/loom/cancelled-meetings-scroll.jpg?lqip';
 import loom3 from '../images/loom/cancelled-meetings-candle-teaser.png?w=1200&format=jpeg&quality=80';
@@ -44,7 +42,6 @@ import loom11lqip from '../images/loom/loom11.png?lqip';
 		<div class="credits"><LoomCredits /></div>
 	</div>
 </div>
-<LQIP sizes={[loom1]} lqip={loom1lqip.lqip} width={loom1lqip.width} height={loom1lqip.height} />
 <div class="pair">
 	<div class="autoscroll">
 		<div class="autoscroll-inner">
@@ -93,7 +90,7 @@ import loom11lqip from '../images/loom/loom11.png?lqip';
 		width: 100%;
 
 		@media (min-width: 600px) {
-			min-height: none;
+			min-height: 0;
 		}
 
 		&-inner {
