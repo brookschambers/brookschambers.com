@@ -46,7 +46,7 @@ import intercom17lqip from '../images/intercom/intercomrebrand_guidelines_opt.jp
 
 <LQIP sizes={[intercom1]} lqip={intercom1lqip.lqip} width={intercom1lqip.width} height={intercom1lqip.height} />
 <SideCaption>
-	<div slot="caption">
+	<div slot="caption" class="text">
 		<div class="longform"><IntercomIntro /></div>
 		<div class="caption"><IntercomCredits /></div>
 	</div>
@@ -94,5 +94,11 @@ import intercom17lqip from '../images/intercom/intercomrebrand_guidelines_opt.jp
 			width: auto;
 		}
 	}
+}
+
+.text {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
 }
 </style>

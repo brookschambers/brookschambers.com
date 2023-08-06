@@ -27,7 +27,7 @@ import mode9lqip from '../images/mode/mode_report.jpg?lqip';
 <LQIP sizes={[mode1]} lqip={mode1lqip.lqip} width={mode1lqip.width} height={mode1lqip.height} />
 <SideCaption orientation="right">
 	<Video slot="media" src={mode2} width={1920} height={1080} background="rgb(29, 70, 52)" />
-	<div slot="caption">
+	<div slot="caption" class="text">
 		<div class="longform"><ModeIntro /></div>
 		<div class="caption"><ModeCredits /></div>
 	</div>
@@ -51,9 +51,6 @@ import mode9lqip from '../images/mode/mode_report.jpg?lqip';
 
 <style lang="scss">
 	@use '../tokens' as *;
-	.caption {
-		@include typography('typography.caption');
-	}
 
 	.dispatch {
 		align-items: flex-end;
@@ -72,11 +69,6 @@ import mode9lqip from '../images/mode/mode_report.jpg?lqip';
 			}
 		}
 	}
-
-	.longform {
-		@include typography('typography.longform');
-	}
-
 	.pad1 {
 		padding: 1rem;
 
@@ -100,5 +92,11 @@ import mode9lqip from '../images/mode/mode_report.jpg?lqip';
 		@media (min-width: 600px) {
 			padding-top: 5rem;
 		}
+	}
+
+	.text {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
 	}
 </style>
