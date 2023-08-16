@@ -20,6 +20,8 @@
 <script>
 	import BezierEasing from 'bezier-easing';
 
+
+	const MAX_DURATION = 1500;
 	const nav = document.getElementById('nav')! as HTMLDivElement;
 	const navLinks = nav.querySelectorAll<HTMLAnchorElement>('.nav-link');
 	const cubicInOut = BezierEasing(0.65, 0, 0.35, 1);
@@ -85,7 +87,9 @@
 				break;
 			}
 		}
-		highlight(activeItem)
+		if (!nav.classList.contains('is-scrolling')) {
+			highlight(activeItem);
+		}
 	}
 	handleScroll(); // fire once on load
 
@@ -93,11 +97,18 @@
 	addEventListener('resize', calculateThresholds);
 
 	// click nav
+	let isScrolling = 0;
 	for (const link of navLinks) {
 		link.addEventListener('click', (evt) => {
 			evt.preventDefault();
 			calculateThresholds();
+			nav.classList.add('is-scrolling'); // disable scroll overriding this
+			highlight((evt.target as HTMLLinkElement).id.replace('-nav-link', ''));
 			scrollTo(Math.ceil(thresholds.find(([id]) => `${id}-nav-link` === link.id)![1]) + 1);
+			clearTimeout(isScrolling);
+			isScrolling = setTimeout(() => {
+				nav.classList.remove('is-scrolling');
+			}, MAX_DURATION) as any;
 		});
 	}
 
@@ -105,7 +116,7 @@
 		let start: number | undefined;
 		const from = scrollY;
 		const delta = y - from;
-		const duration = Math.min(Math.max(Math.abs(delta) / 5, 250), 1500);
+		const duration = Math.min(Math.max(Math.abs(delta) / 5, 250), MAX_DURATION);
 
 		function scrollInner(t: number) {
 			if (!start) start = t;
