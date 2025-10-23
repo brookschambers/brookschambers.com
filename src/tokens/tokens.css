@@ -12,13 +12,13 @@
   --color-loom-purple: #9b5183;
   --color-mode-green: #92b55a;
   --ease-linear: cubic-bezier(0, 0, 1, 1);
-  --timing-quick: 100ms;
-  --timing-moderate: 200ms;
   --timing-deliberate: 400ms;
+  --timing-moderate: 200ms;
+  --timing-quick: 100ms;
   --timing-slow: 1000ms;
-  --transition-linear-quick: var(--timing-quick) 0ms var(--ease-linear);
-  --transition-linear-moderate: var(--timing-moderate) 0ms var(--ease-linear);
   --transition-linear-deliberate: var(--timing-deliberate) 0ms var(--ease-linear);
+  --transition-linear-moderate: var(--timing-moderate) 0ms var(--ease-linear);
+  --transition-linear-quick: var(--timing-quick) 0ms var(--ease-linear);
   --transition-linear-slow: var(--timing-slow) 0ms var(--ease-linear);
   --typography-base-font-family: var(--typography-family-body);
   --typography-base-font-size: 1rem;
@@ -31,19 +31,19 @@
   --typography-caption-font-family: var(--typography-family-body);
   --typography-caption-font-sizes: 0.9375rem;
   --typography-caption-font-weight: 400;
-  --typography-caption-line-height: 1.4;
   --typography-caption-letter-spacing: -0.03281rem;
-  --typography-longform-font-family: var(--typography-family-body);
-  --typography-longform-font-size: 1.5rem;
-  --typography-longform-font-weight: 400;
-  --typography-longform-line-height: 1.4;
-  --typography-longform-letter-spacing: -0.0525rem;
+  --typography-caption-line-height: 1.4;
+  --typography-family-body: Inter, system-ui, ui-sans-serif, -apple-system, Helvetica, Arial, sans-serif;
+  --typography-family-heading: "Roslindale Display", Georgia, serif;
   --typography-heading-font-family: var(--typography-family-heading);
   --typography-heading-font-size: 1.5rem;
   --typography-heading-font-weight: 400;
   --typography-heading-line-height: 1.2;
-  --typography-family-body: Inter, system-ui, ui-sans-serif, -apple-system, Helvetica, Arial, sans-serif;
-  --typography-family-heading: "Roslindale Display", Georgia, serif;
+  --typography-longform-font-family: var(--typography-family-body);
+  --typography-longform-font-size: 1.5rem;
+  --typography-longform-font-weight: 400;
+  --typography-longform-letter-spacing: -0.0525rem;
+  --typography-longform-line-height: 1.4;
 }
 
 @supports (color: color(display-p3 1 1 1)) {
@@ -56,3 +56,4 @@
     --color-mode-green: color(display-p3 0.5725490196078431 0.7098039215686275 0.35294117647058826);
   }
 }
+

@@ -9,49 +9,49 @@
 
 $__token-values: (
   "color.brands.black": (
-    default: (var(--color-brands-black)),
+    ".": (var(--color-brands-black)),
   ),
   "color.brands.pink": (
-    default: (var(--color-brands-pink)),
+    ".": (var(--color-brands-pink)),
   ),
   "color.brands.tan": (
-    default: (var(--color-brands-tan)),
+    ".": (var(--color-brands-tan)),
   ),
   "color.intercom-blue": (
-    default: (var(--color-intercom-blue)),
+    ".": (var(--color-intercom-blue)),
   ),
   "color.loom-purple": (
-    default: (var(--color-loom-purple)),
+    ".": (var(--color-loom-purple)),
   ),
   "color.mode-green": (
-    default: (var(--color-mode-green)),
+    ".": (var(--color-mode-green)),
   ),
   "ease.linear": (
-    default: (var(--ease-linear)),
-  ),
-  "timing.quick": (
-    default: (var(--timing-quick)),
-  ),
-  "timing.moderate": (
-    default: (var(--timing-moderate)),
+    ".": (var(--ease-linear)),
   ),
   "timing.deliberate": (
-    default: (var(--timing-deliberate)),
+    ".": (var(--timing-deliberate)),
+  ),
+  "timing.moderate": (
+    ".": (var(--timing-moderate)),
+  ),
+  "timing.quick": (
+    ".": (var(--timing-quick)),
   ),
   "timing.slow": (
-    default: (var(--timing-slow)),
-  ),
-  "transition.linear-quick": (
-    default: (var(--transition-linear-quick)),
-  ),
-  "transition.linear-moderate": (
-    default: (var(--transition-linear-moderate)),
+    ".": (var(--timing-slow)),
   ),
   "transition.linear-deliberate": (
-    default: (var(--transition-linear-deliberate)),
+    ".": (var(--transition-linear-deliberate)),
+  ),
+  "transition.linear-moderate": (
+    ".": (var(--transition-linear-moderate)),
+  ),
+  "transition.linear-quick": (
+    ".": (var(--transition-linear-quick)),
   ),
   "transition.linear-slow": (
-    default: (var(--transition-linear-slow)),
+    ".": (var(--transition-linear-slow)),
   ),
   "typography.base": (
     "__cobalt-error": "This is a typography mixin. Use `@include typography(\"typography.base\")` instead.",
@@ -62,23 +62,23 @@ $__token-values: (
   "typography.caption": (
     "__cobalt-error": "This is a typography mixin. Use `@include typography(\"typography.caption\")` instead.",
   ),
-  "typography.longform": (
-    "__cobalt-error": "This is a typography mixin. Use `@include typography(\"typography.longform\")` instead.",
+  "typography.family.body": (
+    ".": (var(--typography-family-body)),
+  ),
+  "typography.family.heading": (
+    ".": (var(--typography-family-heading)),
   ),
   "typography.heading": (
     "__cobalt-error": "This is a typography mixin. Use `@include typography(\"typography.heading\")` instead.",
   ),
-  "typography.family.body": (
-    default: (var(--typography-family-body)),
-  ),
-  "typography.family.heading": (
-    default: (var(--typography-family-heading)),
+  "typography.longform": (
+    "__cobalt-error": "This is a typography mixin. Use `@include typography(\"typography.longform\")` instead.",
   ),
 );
 
 $__token-typography-mixins: (
   "typography.base": (
-    default: (
+    ".": (
       "font-family": (var(--typography-base-font-family)),
       "font-size": (var(--typography-base-font-size)),
       "font-weight": (var(--typography-base-font-weight)),
@@ -86,7 +86,7 @@ $__token-typography-mixins: (
     ),
   ),
   "typography.body": (
-    default: (
+    ".": (
       "font-family": (var(--typography-body-font-family)),
       "font-size": (var(--typography-body-font-size)),
       "font-weight": (var(--typography-body-font-weight)),
@@ -94,7 +94,7 @@ $__token-typography-mixins: (
     ),
   ),
   "typography.caption": (
-    default: (
+    ".": (
       "font-family": (var(--typography-caption-font-family)),
       "font-sizes": (var(--typography-caption-font-sizes)),
       "font-weight": (var(--typography-caption-font-weight)),
@@ -102,8 +102,16 @@ $__token-typography-mixins: (
       "line-height": (var(--typography-caption-line-height)),
     ),
   ),
+  "typography.heading": (
+    ".": (
+      "font-family": (var(--typography-heading-font-family)),
+      "font-size": (var(--typography-heading-font-size)),
+      "font-weight": (var(--typography-heading-font-weight)),
+      "line-height": (var(--typography-heading-line-height)),
+    ),
+  ),
   "typography.longform": (
-    default: (
+    ".": (
       "font-family": (var(--typography-longform-font-family)),
       "font-size": (var(--typography-longform-font-size)),
       "font-weight": (var(--typography-longform-font-weight)),
@@ -111,17 +119,9 @@ $__token-typography-mixins: (
       "line-height": (var(--typography-longform-line-height)),
     ),
   ),
-  "typography.heading": (
-    default: (
-      "font-family": (var(--typography-heading-font-family)),
-      "font-size": (var(--typography-heading-font-size)),
-      "font-weight": (var(--typography-heading-font-weight)),
-      "line-height": (var(--typography-heading-line-height)),
-    ),
-  ),
 );
 
-@function token($tokenName, $modeName: default) {
+@function token($tokenName, $modeName: ".") {
   @if map.has-key($__token-values, $tokenName) == false {
     @error "No token named \"#{$tokenName}\"";
   }
@@ -132,7 +132,7 @@ $__token-typography-mixins: (
   @if map.has-key($_token, $modeName) {
     @return map.get($_token, $modeName);
   } @else {
-    @return map.get($_token, default);
+    @return map.get($_token, ".");
   }
 }
 
@@ -142,19 +142,19 @@ $__token-typography-mixins: (
   }
   $_modes: ();
   @each $k in map.get($__token-values, $tokenName) {
-    @if $k != "default" {
+    @if $k != "." {
       $_modes: list.append($_modes, $k);
     }
   }
   @return $_modes;
 }
 
-@mixin typography($tokenName, $modeName: default) {
+@mixin typography($tokenName, $modeName: ".") {
   @if map.has-key($__token-typography-mixins, $tokenName) == false {
     @error "No typography mixin named \"#{$tokenName}\"";
   }
   $_mixin: map.get($__token-typography-mixins, $tokenName);
-  $_properties: map.get($_mixin, default);
+  $_properties: map.get($_mixin, ".");
   @if map.has-key($_mixin, $modeName) {
     $_properties: map.get($_mixin, $modeName);
   }
