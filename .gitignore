@@ -3,3 +3,4 @@
 .swc
 dist
 node_modules
+pnpm-workspace.yaml
