@@ -14,7 +14,7 @@ const { sizes, lqip, width, height, alt, ...rest } = Astro.props;
 <img class="lqip" src={sizes[0]} width={width} height={height} style={lqip ? `background-image: url(${lqip});` : undefined} alt={alt} />
 
 <script>
-	// remove LQIP on image load (needed for tranparent images)
+	// remove LQIP on image load (needed for transparent images)
 	function handleLoad(evt) {
 		evt.target.style.removeProperty('background-image');
 	}

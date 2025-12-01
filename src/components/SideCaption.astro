@@ -2,10 +2,10 @@
 import clsx from 'clsx';
 
 export interface Props {
-	orientation: 'left' | 'right';
+	orientation?: 'left' | 'right';
 }
 
-const { orientation } = Astro.props;
+const { orientation = 'left' } = Astro.props;
 ---
 
 <figure class={clsx('wrapper', `wrapper--${orientation}`)}>

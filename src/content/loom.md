@@ -1,1 +1,1 @@
-Loom helps people bring their work to life with video messaging. While there, I had the chance to help lead a complete in-house rebrand, while also creative directing product launches, campaigns, and video spots. 
+Loom helps people bring their work to life with video messaging. While there, I had the chance to help lead a complete in-house rebrand, while also creative directing product launches, campaigns, and video spots.
