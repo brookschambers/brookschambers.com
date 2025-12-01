@@ -1,41 +1,41 @@
 ---
-import LQIP from './LQIP.astro';
-import Video from './Video.astro';
+import LQIP from "./LQIP.astro";
+import Video from "./Video.astro";
 
 // assets
-import { Content as LoomIntro } from '../content/loom.md';
-import { Content as LoomCredits } from '../content/loom-credits.md';
-import loom1 from '../images/loom/cancelled-meetings-scroll.jpg?w=1400&format=webp&quality=80';
-import loom1lqip from '../images/loom/cancelled-meetings-scroll.jpg?lqip';
-import loom2 from '../images/loom/cancelled-meetings-scroll.jpg?w=1400&format=webp&quality=80';
-import loom2lqip from '../images/loom/cancelled-meetings-scroll.jpg?lqip';
-import loom3 from '../images/loom/cancelled-meetings-candle-teaser.png?w=1200&format=jpeg&quality=80';
-import loom3lqip from '../images/loom/cancelled-meetings-candle-teaser.png?lqip';
-import loom4 from '../images/loom/loom-logo.svg';
-import loom5a from '../images/loom/loom-block-a.png?w=800&format=jpg&quality=80';
-import loom5alqip from '../images/loom/loom-block-a.png?lqip';
-import loom5b from '../images/loom/loom-block-b.png?w=800&format=jpg&quality=80';
-import loom5blqip from '../images/loom/loom-block-b.png?lqip';
-import loom5c from '../images/loom/loom-block-c.png?w=800&format=jpg&quality=80';
-import loom5clqip from '../images/loom/loom-block-c.png?lqip';
-import loom5d from '../images/loom/loom-block-d.png?w=800&format=jpg&quality=80';
-import loom5dlqip from '../images/loom/loom-block-d.png?lqip';
-import loom5e from '../images/loom/loom-block-e.png?w=800&format=jpg&quality=80';
-import loom5elqip from '../images/loom/loom-block-e.png?lqip';
-import loom5f from '../images/loom/loom-block-f.png?w=800&format=jpg&quality=80';
-import loom5flqip from '../images/loom/loom-block-f.png?lqip';
-import loom6 from '../images/loom/loom-workspace.png?w=1600&format=jpg&quality=80';
-import loom6lqip from '../images/loom/loom-workspace.png?lqip';
-import loom7 from '../images/loom/loom-enterprise.png?w=1600&format=jpg&quality=80';
-import loom7lqip from '../images/loom/loom-enterprise.png?lqip';
-import loom8 from '../images/loom/loom-galaxy.jpg?w=1600&format=jpg&quality=80';
-import loom8lqip from '../images/loom/loom-galaxy.jpg?lqip';
-import loom9 from '../images/loom/Loom-Sandwich-Explainer-Video.mp4';
-import loom9poster from '../images/loom/Loom-Sandwich-Explainer-Video-poster.jpg?w=1600&format=webp&quality=80';
-import loom10 from '../images/loom/loom10.png?w=1600&format=jpg&quality=80';
-import loom10lqip from '../images/loom/loom10.png?lqip';
-import loom11 from '../images/loom/loom11.png?w=1600&format=jpg&quality=80';
-import loom11lqip from '../images/loom/loom11.png?lqip';
+import { Content as LoomIntro } from "../content/loom.md";
+import { Content as LoomCredits } from "../content/loom-credits.md";
+import loom1 from "../images/loom/cancelled-meetings-scroll.jpg?w=1400&format=webp&quality=80";
+import loom1lqip from "../images/loom/cancelled-meetings-scroll.jpg?lqip";
+import loom2 from "../images/loom/cancelled-meetings-scroll.jpg?w=1400&format=webp&quality=80";
+import loom2lqip from "../images/loom/cancelled-meetings-scroll.jpg?lqip";
+import loom3 from "../images/loom/cancelled-meetings-candle-teaser.png?w=1200&format=jpeg&quality=80";
+import loom3lqip from "../images/loom/cancelled-meetings-candle-teaser.png?lqip";
+import loom4 from "../images/loom/loom-logo.svg";
+import loom5a from "../images/loom/loom-block-a.png?w=800&format=jpg&quality=80";
+import loom5alqip from "../images/loom/loom-block-a.png?lqip";
+import loom5b from "../images/loom/loom-block-b.png?w=800&format=jpg&quality=80";
+import loom5blqip from "../images/loom/loom-block-b.png?lqip";
+import loom5c from "../images/loom/loom-block-c.png?w=800&format=jpg&quality=80";
+import loom5clqip from "../images/loom/loom-block-c.png?lqip";
+import loom5d from "../images/loom/loom-block-d.png?w=800&format=jpg&quality=80";
+import loom5dlqip from "../images/loom/loom-block-d.png?lqip";
+import loom5e from "../images/loom/loom-block-e.png?w=800&format=jpg&quality=80";
+import loom5elqip from "../images/loom/loom-block-e.png?lqip";
+import loom5f from "../images/loom/loom-block-f.png?w=800&format=jpg&quality=80";
+import loom5flqip from "../images/loom/loom-block-f.png?lqip";
+import loom6 from "../images/loom/loom-workspace.png?w=1600&format=jpg&quality=80";
+import loom6lqip from "../images/loom/loom-workspace.png?lqip";
+import loom7 from "../images/loom/loom-enterprise.png?w=1600&format=jpg&quality=80";
+import loom7lqip from "../images/loom/loom-enterprise.png?lqip";
+import loom8 from "../images/loom/loom-galaxy.jpg?w=1600&format=jpg&quality=80";
+import loom8lqip from "../images/loom/loom-galaxy.jpg?lqip";
+import loom9 from "../images/loom/Loom-Sandwich-Explainer-Video.mp4";
+import loom9poster from "../images/loom/Loom-Sandwich-Explainer-Video-poster.jpg?w=1600&format=webp&quality=80";
+import loom10 from "../images/loom/loom10.png?w=1600&format=jpg&quality=80";
+import loom10lqip from "../images/loom/loom10.png?lqip";
+import loom11 from "../images/loom/loom11.png?w=1600&format=jpg&quality=80";
+import loom11lqip from "../images/loom/loom11.png?lqip";
 ---
 
 <LQIP sizes={[loom1]} lqip={loom1lqip.lqip} width={loom1lqip.width} height={loom1lqip.height} />
@@ -55,7 +55,7 @@ import loom11lqip from '../images/loom/loom11.png?lqip';
 	<LQIP sizes={[loom3]} lqip={loom3lqip.lqip} width={loom3lqip.width} height={loom3lqip.height} />
 </div>
 <div class="logo-container">
-	<img src={loom4} class="logo" width="1020" height="854" />
+	<img src={loom4.src} class="logo" width="1020" height="854" />
 </div>
 <div class="card-grid">
 	<LQIP sizes={[loom5a]} lqip={loom5alqip.lqip} width={loom5alqip.width} height={loom5alqip.height} />
